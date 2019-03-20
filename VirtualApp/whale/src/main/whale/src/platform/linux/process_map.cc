@@ -32,7 +32,13 @@ std::unique_ptr<MemoryRange> FindExecuteMemoryRange(const char *name) {
     std::unique_ptr<MemoryRange> range(new MemoryRange);
     ForeachMemoryRange(
             [&](uintptr_t begin, uintptr_t end, char *perm, char *mapname) -> bool {
+                if (strncmp(mapname, "/system/fake-libs/", 18) == 0) {
+                    LOG(INFO) << "lpcdma 0!";
+                    return true;
+                }
                 if (strstr(mapname, name) && strstr(perm, "x") && strstr(perm, "r")) {
+                    LOG(INFO) << "lpcdma mapname " << mapname;
+                    LOG(INFO) << "lpcdma name " << name;
                     range->path_ = strdup(mapname);
                     range->base_ = begin;
                     range->end_ = end;

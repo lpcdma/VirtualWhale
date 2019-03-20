@@ -8,7 +8,8 @@ set_target_properties(lib_whale PROPERTIES IMPORTED_LOCATION
 
 add_library( native-lib
         SHARED
-        native-lib.cpp )
+        native-lib.cpp
+        util.c)
 
 target_include_directories(native-lib PRIVATE
         ${distribution_DIR}/whale/include)
