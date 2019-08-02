@@ -20,10 +20,10 @@ public class MyComponentDelegate implements ComponentDelegate {
     @Override
     public void beforeApplicationCreate(Application application) {
         String pkgName = application.getPackageName();
-        if (pkgName.contains("com.example.whaletest")) {
+        if (pkgName.contains("com.example.nfh")) {
             Log.d("lpcdma", "start hook!!!");
             Hooker.toDo(application.getClassLoader());
-            NativeHookTest.toDo();
+//            NativeHookTest.toDo();
         }
     }
 

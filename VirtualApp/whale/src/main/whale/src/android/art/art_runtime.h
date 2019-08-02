@@ -139,6 +139,7 @@ class ArtRuntime final {
     ClassLinkerObjects class_linker_objects_;
     ArtMethodOffsets method_offset_;
     std::map<jmethodID, ArtHookParam *> hooked_method_map_;
+    pthread_mutex_t mutex;
 
     bool EnforceDisableHiddenAPIPolicyImpl();
 
